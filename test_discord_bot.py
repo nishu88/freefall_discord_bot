@@ -5,6 +5,10 @@ import asyncio
 import time
 import os
 
+from PIL import ImageGrab
+from bs4 import BeautifulSoup
+from PIL import ImageEnhance
+
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
 
