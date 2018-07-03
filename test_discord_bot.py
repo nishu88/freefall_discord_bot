@@ -4,6 +4,8 @@ from discord.ext import commands
 import asyncio
 import time
 import os
+import requests
+import re
 
 from bs4 import BeautifulSoup
 
