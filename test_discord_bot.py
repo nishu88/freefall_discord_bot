@@ -74,8 +74,7 @@ async def on_message(message):
         tab="https://www.bing.com/search?q="
         tabb="https://search.aol.com/aol/search?s_chn=prt_bon&q=" 
         tab1="https://search.aol.com/aol/search?s_chn=prt_bon&q=" #num=30&ei=py29WruLGoiSvQSbsIjYAg&
-        tab2="https://www.google.co.in/search?q="
-        webbrowser.open(tab2+q)
+        tab2="https://www.google.co.in/search?q="        
         
         response=requests.get(tab+q+"&count=30")        
         soup=BeautifulSoup(response.text,"html.parser")        
