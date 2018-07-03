@@ -9,7 +9,7 @@ client = commands.Bot(command_prefix = "?")
 
 chat_filter = ["PINEAPPLE", "APPLE", "CHROME"]
 bypass_list = []
-
+print("HI there")
 @client.event
 async def on_ready():
     print("Bot is online and connected to Discord")
