@@ -3,4 +3,3 @@ Pillow
 beautifulsoup4
 regex
 requests
-os
