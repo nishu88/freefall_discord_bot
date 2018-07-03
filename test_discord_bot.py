@@ -23,6 +23,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.content == "cookie":
+        await client.send_message(message.channel, ":cookie:") #responds with Cookie emoji when someone says "cookie"
+
     if message.content.upper().startswith('!PING'):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> Pong!" % (userID))
@@ -33,6 +36,16 @@ async def on_message(message):
         #args[2] = There
         #args[1:] = Hey There
         await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
+
+    contents = message.content.split(" ") #contents is a list type
+    for word in contents:
+        if word.upper() in chat_filter:
+            if not message.author.id in bypass_list:
+                try:
+                    await client.delete_message(message)
+                    await client.send_message(message.channel, "**Hey!** You're not allowed to use that word here!")
+                except discord.errors.NotFound:
+                    return
 
 ##@client.event
 ##async def on_message(message):
