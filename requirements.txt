@@ -1,2 +1,3 @@
 discord.py
 Pillow.py
+beautifulsoup4.py
