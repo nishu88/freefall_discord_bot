@@ -26,8 +26,8 @@ async def on_message(message):
     if message.content.lower() == "cookie":
         await client.send_message(message.channel, ":cookie:") #responds with Cookie emoji when someone says "cookie"
         
-    if message.content.lower() == "owner" or message.content.lower() == "maker" or message.content.lower() == "father" or message.content.lower() == "?owner" or message.content.lower() == "?maker":
-        await client.send_message(message.channel, "<@%s> NISHANTH D ALUHONNU % (<@277695189131460609>)")
+    if message.content.lower() == "owner" or message.content.lower() == "author" or message.content.lower() == "father" or message.content.lower() == "?owner" or message.content.lower() == "?maker":
+        await client.send_message(message.channel, "<@277695189131460609> NISHANTH D ALUHONNU")
 
     if message.content.upper().startswith('!PING'):
         userID = message.author.id
