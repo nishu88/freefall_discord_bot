@@ -1,2 +1,4 @@
 discord.py
 beautifulsoup4
+regex
+requests
