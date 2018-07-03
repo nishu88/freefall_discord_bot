@@ -2,4 +2,4 @@ discord.py
 Pillow
 beautifulsoup4
 regex
-requests
+requests[security]
