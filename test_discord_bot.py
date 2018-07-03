@@ -23,8 +23,10 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content == "cookie":
+    if message.content.lower() == "cookie":
         await client.send_message(message.channel, ":cookie:") #responds with Cookie emoji when someone says "cookie"
+    if message.content.lower() == "owner" or message.content.lower() == "maker" or message.content.lower() == "father" or message.content.lower() == "?owner" or message.content.lower() == "?maker":
+        await client.send_message(message.channel, ":cookie:")
 
     if message.content.upper().startswith('!PING'):
         userID = message.author.id
