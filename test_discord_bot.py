@@ -48,8 +48,27 @@ async def on_message(message):
                     return
     if message.content.lower().startswith('?guess '):
         var=message.content
-        await client.send_message(message.channel, var[6:])               
-
+        var=var[6:]
+        s=var.split("\n")
+        
+        length=len(s)      
+        
+        
+        o3=s[length-1]
+        o2=s[length-2]
+        o1=s[length-3]        
+        q=" "
+        for i in range(0,length-3):
+            if q[-1] !=" ":
+                q=q+" "
+            q+=s[i]
+            
+        q=q.replace(" ","+")
+            
+        await client.send_message(message.channel, q)
+        await client.send_message(message.channel, o1)
+        await client.send_message(message.channel, o2)
+        await client.send_message(message.channel, o3)
 ##@client.event
 ##async def on_message(message):
 ##    contents = message.content.split(" ") #contents is a list type
