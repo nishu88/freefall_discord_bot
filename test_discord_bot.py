@@ -4,6 +4,7 @@ from discord.ext import commands
 import asyncio
 import time
 import os
+import re
 
 from PIL import ImageGrab
 from bs4 import BeautifulSoup
