@@ -66,9 +66,7 @@ async def on_message(message):
         q=q.replace(" ","+")
             
         await client.send_message(message.channel, q)
-        await client.send_message(message.channel, o1)
-        await client.send_message(message.channel, o2)
-        await client.send_message(message.channel, o3)
+
 
         tab="https://www.bing.com/search?q="
         tabb="https://search.aol.com/aol/search?s_chn=prt_bon&q=" 
