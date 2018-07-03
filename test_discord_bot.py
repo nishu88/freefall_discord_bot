@@ -5,7 +5,7 @@ import asyncio
 import time
 import os
 
-
+from bs4 import BeautifulSoup
 
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
