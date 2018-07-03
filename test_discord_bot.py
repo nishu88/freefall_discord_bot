@@ -5,7 +5,7 @@ import asyncio
 import time
 import os
 import re
-import requests
+
 
 from PIL import ImageGrab
 from bs4 import BeautifulSoup
