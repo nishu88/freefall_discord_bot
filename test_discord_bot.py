@@ -46,6 +46,9 @@ async def on_message(message):
                     await client.send_message(message.channel, "**Hey!** You're not allowed to use that word here!")
                 except discord.errors.NotFound:
                     return
+    if message.content.lower().startswith('?nishu '):
+        var=message.content
+        await client.send_message(message.channel, var[6:])               
 
 ##@client.event
 ##async def on_message(message):
