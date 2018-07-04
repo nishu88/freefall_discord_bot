@@ -34,7 +34,9 @@ async def on_message(message):
     if message.content.lower().startswith('?miss'):
          overall_miss=overall_miss+1
          miss=miss+1
-
+        
+    if message.content.lower().startswith('?reset'):
+         miss=0
 
          
     if message.content.lower().startswith('?thankyou'):
