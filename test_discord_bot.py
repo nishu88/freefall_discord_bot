@@ -66,9 +66,11 @@ async def on_message(message):
                 q=q+" "
             q+=s[i]
             
+        await client.send_message(message.channel, q)   
+        
         q=q.replace(" ","+")
             
-        await client.send_message(message.channel, q)
+        
 
 
         tab="https://www.bing.com/search?q="
@@ -82,7 +84,7 @@ async def on_message(message):
         soup1=BeautifulSoup(response1.text,"html.parser")
         #print(soup1)
         
-        links = soup1.findAll("a")
+        
         #print (links)
         ctrrrr=0
         for link in  soup1.find_all("a"):
