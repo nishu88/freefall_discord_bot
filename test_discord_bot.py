@@ -179,9 +179,9 @@ async def on_message(message):
 
         print()
         m=max(c1,c2,c3)
-        await client.send_message(message.channel, o1+"       "+str(c1)+"           "+str(ca))
-        await client.send_message(message.channel, o2+"       "+str(c2)+"           "+str(cb))
-        await client.send_message(message.channel, o3+"       "+str(c3)+"           "+str(cc))
+        #await client.send_message(message.channel, o1+"       "+str(c1)+"           "+str(ca))
+        #await client.send_message(message.channel, o2+"       "+str(c2)+"           "+str(cb))
+        #await client.send_message(message.channel, o3+"       "+str(c3)+"           "+str(cc))
         
         if m==c1:
             await client.send_message(message.channel, "\n"+"111   "+o1+" "+o1+" "+o1+" "+o1)
