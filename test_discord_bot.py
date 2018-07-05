@@ -98,7 +98,7 @@ async def on_message(message):
                 q=q+" "
             q+=s[i]
             
-        await client.send_message(message.channel, q)   
+        #await client.send_message(message.channel, q)   
         
         q=q.replace(" ","+")
             
