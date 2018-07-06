@@ -179,16 +179,24 @@ async def on_message(message):
 
         print()
         m=max(c1,c2,c3)
+        m1=min(c1,c2,c3)
         #await client.send_message(message.channel, o1+"       "+str(c1)+"           "+str(ca))
         #await client.send_message(message.channel, o2+"       "+str(c2)+"           "+str(cb))
         #await client.send_message(message.channel, o3+"       "+str(c3)+"           "+str(cc))
         
         if m==c1:
-            await client.send_message(message.channel, "\n"+"111   "+o1+" "+o1+" "+o1+" "+o1)
+            await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1+" "+o1+" "+o1+" "+o1)
         elif m==c2:
-            await client.send_message(message.channel, "\n"+"111   "+o2+" "+o2+" "+o2+" "+o2)
+            await client.send_message(message.channel, "\n"+"Best Possibility=  "+"222   "+o2+" "+o2+" "+o2+" "+o2)
         elif m==c3:
-            await client.send_message(message.channel, "\n"+"111   "+o3+" "+o3+" "+o3+" "+o3)
+            await client.send_message(message.channel, "\n"+"Best Possibility=  "+"333   "+o3+" "+o3+" "+o3+" "+o3)
+            
+        if m1==c1:
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1+" "+o1+" "+o1+" "+o1)
+        elif m1==c2:
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"222   "+o2+" "+o2+" "+o2+" "+o2)
+        elif m1==c3:
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"333   "+o3+" "+o3+" "+o3+" "+o3)
 
                 
                     
