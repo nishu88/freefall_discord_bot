@@ -191,7 +191,7 @@ async def on_message(message):
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"222   "+o2)
         elif m==c3:
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"333   "+o3)
-        await client.send_message(message.channel, "              ")    
+        #await client.send_message(message.channel, "              ")    
         if m1==c1:
             await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)
         elif m1==c2:
