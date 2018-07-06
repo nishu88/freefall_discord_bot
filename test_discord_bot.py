@@ -88,7 +88,7 @@ async def on_message(message):
         
         length=len(s)      
         if(len(s[0])<6):
-        s[0]=""
+            s[0]=""
         
         o3=s[length-1]
         o2=s[length-2]
