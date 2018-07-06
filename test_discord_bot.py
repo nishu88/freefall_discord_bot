@@ -184,7 +184,7 @@ async def on_message(message):
         #await client.send_message(message.channel, o1+"       "+str(c1)+"           "+str(ca))
         #await client.send_message(message.channel, o2+"       "+str(c2)+"           "+str(cb))
         #await client.send_message(message.channel, o3+"       "+str(c3)+"           "+str(cc))
-        
+        await client.send_message("<@464836410373832704>","Doesnt work on negative questions")
         if m==c1:
             await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1)
             await client.send_message("<@464836410373832704>","\n"+"Best Possibility=  "+"111   "+o1)
