@@ -43,11 +43,11 @@ async def on_message(message):
          
          await client.send_message(message.channel, "Thank you for your TRUST in the BLOT (not a typo)")
          await client.send_message(message.channel, "Developed by- <@277695189131460609>")
-         await client.send_message(message.channel, "Subscription- FREE ACCESS")
+         await client.send_message(message.channel, "Subscription- FREE until i change my mind :P")
          await client.send_message(message.channel, "Today's stats =  "+ str(10-miss)+" / " +str(10))
-         await client.send_message(message.channel, "Overall stats =  "+ str(overall_questions-overall_miss)+" / " +str(overall_questions))
-         await client.send_message(message.channel, "Accuracy =  "+ str((overall_questions-overall_miss)/ overall_questions*100))
-         await client.send_message(message.channel, "BLOT going to Sleep   :sleeping:")
+         #await client.send_message(message.channel, "Overall stats =  "+ str(overall_questions-overall_miss)+" / " +str(overall_questions))
+         #await client.send_message(message.channel, "Accuracy =  "+ str((overall_questions-overall_miss)/ overall_questions*100))
+         #await client.send_message(message.channel, "BLOT going to Sleep   :sleeping:")
     
     if message.content.lower() == "cookie":
         await client.send_message(message.channel, ":cookie:") #responds with Cookie emoji when someone says "cookie"
@@ -256,8 +256,8 @@ async def on_message(message):
 ##        await client.send_message(message.channel, "       "+str(czz)  )
             
   
-    if message.content.lower().startswith('?help'):
-        await client.send_message(message.channel, " ?miss  ?thankyou  cookie  ?owner  !ping   ?guess")
+    #if message.content.lower().startswith('?help'):
+        #await client.send_message(message.channel, " ?miss  ?thankyou  cookie  ?owner  !ping   ?guess")
 
             
   
