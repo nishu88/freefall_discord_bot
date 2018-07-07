@@ -201,16 +201,16 @@ async def on_message(message):
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"333   "+o3)
             await client.send_message(discord.Object(id='451132176822566932'), "\n"+"Best Possibility=  "+"333   "+o3)
            
-        if m1 != 0:  
-            if m1==c1:
-                await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)         
-                await client.send_message(discord.Object(id='451132176822566932'),"\n"+"Least Possibility=  "+"111   "+o1)
-            elif m1==c2:
-                await client.send_message(message.channel, "\n"+"Least Possibility=  "+"222   "+o2)
-                await client.send_message(discord.Object(id='451132176822566932'),"\n"+"Least Possibility=  "+"222   "+o2)
-            elif m1==c3:
-                await client.send_message(message.channel, "\n"+"Least Possibility=  "+"333   "+o3)
-                await client.send_message(discord.Object(id='451132176822566932'),"\n"+"Least Possibility=  "+"333   "+o3)
+         
+        if m1==c1:
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)         
+            await client.send_message(discord.Object(id='451132176822566932'),"\n"+"Least Possibility=  "+"111   "+o1)
+        elif m1==c2:
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"222   "+o2)
+            await client.send_message(discord.Object(id='451132176822566932'),"\n"+"Least Possibility=  "+"222   "+o2)
+        elif m1==c3:
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"333   "+o3)
+            await client.send_message(discord.Object(id='451132176822566932'),"\n"+"Least Possibility=  "+"333   "+o3)
 
                 
                     
