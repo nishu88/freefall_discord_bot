@@ -59,6 +59,10 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> Pong!" % (userID))
         
+    if message.content.upper().startswith('?here'):
+        id1 = message.channel.id
+        
+        
     if message.content.upper().startswith('!SAY'):
         args = message.content.split(" ")
         #args[0] = !SAY
@@ -189,9 +193,9 @@ async def on_message(message):
             await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1)            
             #await client.send_message(discord.Object(id='464836410373832704'), 'hello')
             if(m==0):
-                await client.send_message(discord.Object(id='284994155443126273'),"Sorry, But you're on ur own Mate")   
+                await client.send_message(discord.Object(id=id1),"Sorry, But you're on ur own Mate")   
             else:    
-                wait client.send_message(discord.Object(id='284994155443126273'),"\n"+"Best Possibility=  "+"111   "+o1)
+                await client.send_message(discord.Object(id=id1),"\n"+"Best Possibility=  "+"111   "+o1)
             
         elif m==c2:
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"222   "+o2)
