@@ -59,9 +59,10 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> Pong!" % (userID))
         
-    if message.content.lower() == "?here":       
-        id1= str(message.channel.id )
-        await client.send_message(message.channel, "Got it")
+    if message.content.lower() == "?here":    
+        if str(message.author.id)=="277695189131460609" or str(message.author.id)=="366125961206300673":
+            id1= str(message.channel.id )
+            await client.send_message(message.channel, "Got it")
         
         
     if message.content.upper().startswith('!SAY'):
