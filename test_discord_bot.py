@@ -60,7 +60,7 @@ async def on_message(message):
         await client.send_message(message.channel, "<@%s> Pong!" % (userID))
         
     if message.content.upper().startswith('?here'):
-        id1 = message.channel.id
+        id1 = str(message.channel.id)
         
         
     if message.content.upper().startswith('!SAY'):
