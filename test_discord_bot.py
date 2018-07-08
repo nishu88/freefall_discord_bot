@@ -187,7 +187,7 @@ async def on_message(message):
         
         if m==c1:
             await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1)
-            print(message.channel)
+            await client.send_message(message.channel,message.channel)
             #await client.send_message(discord.Object(id='464836410373832704'), 'hello')
             if(m==0):
                 await client.send_message(discord.Object(id='284994155443126273'),"Sorry, But you're on ur own Mate")   
