@@ -28,7 +28,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global overall_miss,miss,overall_questions
+    global overall_miss,miss,overall_questions,id1
         
 
     if message.content.lower().startswith('?miss'):
@@ -59,8 +59,9 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> Pong!" % (userID))
         
-    if message.content.upper().startswith('?here'):
-        id1 = str(message.channel.id)
+    if message.content.lower() == "?here":       
+        id1= str(message.channel.id )
+        await client.send_message(message.channel, "Got it")
         
         
     if message.content.upper().startswith('!SAY'):
@@ -199,22 +200,22 @@ async def on_message(message):
             
         elif m==c2:
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"222   "+o2)
-            await client.send_message(discord.Object(id='284994155443126273'), "\n"+"Best Possibility=  "+"222   "+o2)   
+            await client.send_message(discord.Object(id=id1), "\n"+"Best Possibility=  "+"222   "+o2)   
             
         elif m==c3:
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"333   "+o3)
-            await client.send_message(discord.Object(id='284994155443126273'), "\n"+"Best Possibility=  "+"333   "+o3)
+            await client.send_message(discord.Object(id=id1), "\n"+"Best Possibility=  "+"333   "+o3)
            
          
         if m1==c1:
             await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)         
-            await client.send_message(discord.Object(id='284994155443126273'),"\n"+"Least Possibility=  "+"111   "+o1)
+            await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"111   "+o1)
         elif m1==c2:
             await client.send_message(message.channel, "\n"+"Least Possibility=  "+"222   "+o2)
-            await client.send_message(discord.Object(id='284994155443126273'),"\n"+"Least Possibility=  "+"222   "+o2)
+            await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"222   "+o2)
         elif m1==c3:
             await client.send_message(message.channel, "\n"+"Least Possibility=  "+"333   "+o3)
-            await client.send_message(discord.Object(id='284994155443126273'),"\n"+"Least Possibility=  "+"333   "+o3)
+            await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"333   "+o3)
 
                 
                     
