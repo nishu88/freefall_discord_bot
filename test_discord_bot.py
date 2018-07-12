@@ -194,9 +194,7 @@ async def on_message(message):
         if m==c1:            
             await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1)            
             #await client.send_message(discord.Object(id='464836410373832704'), 'hello')
-            if(m==0):
-                await client.send_message(discord.Object(id=id1),"Sorry, But you're on ur own Mate")   
-            else:    
+            if(m!=0):
                 await client.send_message(discord.Object(id=id1),"\n"+"Best Possibility=  "+"111   "+o1)
             
         elif m==c2:
@@ -209,7 +207,8 @@ async def on_message(message):
            
          
         if m1==c1:
-            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)         
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)  
+            if(m!=0):
             await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"111   "+o1)
         elif m1==c2:
             await client.send_message(message.channel, "\n"+"Least Possibility=  "+"222   "+o2)
