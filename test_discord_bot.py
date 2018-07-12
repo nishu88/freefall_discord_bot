@@ -16,7 +16,7 @@ overall_questions=0
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
 
-chat_filter = ["NISHANTH", "FREEFALL"]
+chat_filter = ["FREEFALL", "DISCORD"]
 bypass_list = []
 
 @client.event
@@ -52,7 +52,7 @@ async def on_message(message):
     if message.content.lower() == "cookie":
         await client.send_message(message.channel, ":cookie:") #responds with Cookie emoji when someone says "cookie"
         
-    if message.content.lower() == "owner" or message.content.lower() == "author" or message.content.lower() == "father" or message.content.lower() == "?owner" or message.content.lower() == "?maker":
+    if message.content.lower() == "owner" or message.content.lower() == "?father" or message.content.lower() == "?owner" or message.content.lower() == "?maker":
         await client.send_message(message.channel, "<@277695189131460609> NISHANTH D ALUHONNU")
 
     if message.content.upper().startswith('!PING'):
