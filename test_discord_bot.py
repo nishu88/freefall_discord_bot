@@ -78,7 +78,7 @@ async def on_message(message):
         if word.upper() in chat_filter:
             if not message.author.id in bypass_list:
                 try:
-                    await client.delete_message(message)
+                    #await client.delete_message(message)
                     await client.send_message(message.channel, "<Discord> is not a bad word <@159985870458322944>")#**Hey!** You're not allowed to use that word here!
                 except discord.errors.NotFound:
                     return
