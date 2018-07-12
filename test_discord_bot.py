@@ -16,7 +16,7 @@ overall_questions=0
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
 
-chat_filter = ["FREEFALL", "DISCORD"]
+chat_filter = ["DISCORD"]
 bypass_list = []
 
 @client.event
@@ -79,7 +79,7 @@ async def on_message(message):
             if not message.author.id in bypass_list:
                 try:
                     await client.delete_message(message)
-                    await client.send_message(message.channel, "**Hey!** You're not allowed to use that word here!")
+                    await client.send_message(message.channel, "<Discord> is not a bad word <@159985870458322944>")#**Hey!** You're not allowed to use that word here!
                 except discord.errors.NotFound:
                     return
 
@@ -191,7 +191,8 @@ async def on_message(message):
         #await client.send_message(message.channel, o2+"       "+str(c2)+"           "+str(cb))
         #await client.send_message(message.channel, o3+"       "+str(c3)+"           "+str(cc))
         
-        if m==c1:            
+        if m==c1:
+            
             await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1)            
             #await client.send_message(discord.Object(id='464836410373832704'), 'hello')
             if(m!=0):
@@ -209,7 +210,7 @@ async def on_message(message):
         if m1==c1:
             await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)  
             if(m!=0):
-            await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"111   "+o1)
+                await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"111   "+o1)
         elif m1==c2:
             await client.send_message(message.channel, "\n"+"Least Possibility=  "+"222   "+o2)
             await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"222   "+o2)
@@ -265,8 +266,7 @@ async def on_message(message):
             
   
     #if message.content.lower().startswith('?help'):
-        #await client.send_message(message.channel, " ?miss  ?thankyou  cookie  ?owner  !ping   ?guess")
-
+        #await client.send_message(message.channel, " ?miss  ?thankyou  cookie  ?owner  !ping   ?guess") 
             
   
                     
