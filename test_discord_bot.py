@@ -16,7 +16,7 @@ overall_questions=0
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
 
-chat_filter = ["DISCORD"]
+chat_filter = ["DISCOdRD"]
 bypass_list = []
 
 @client.event
