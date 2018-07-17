@@ -28,7 +28,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global overall_miss,miss,overall_questions,id1
+    global overall_miss,miss,overall_questions,id1,id2
         
 
     if message.content.lower().startswith('?miss'):
@@ -63,6 +63,11 @@ async def on_message(message):
         if str(message.author.id)=="277695189131460609" or str(message.author.id)=="366125961206300673":
             id1= str(message.channel.id )
             await client.send_message(message.channel, "Got it")
+            
+    if message.content.lower() == "?here1":    
+        if str(message.author.id)=="277695189131460609":
+            id2= str(message.channel.id )
+            await client.send_message(message.channel, "Got it")            
         
         
     if message.content.upper().startswith('!SAY'):
@@ -120,7 +125,9 @@ async def on_message(message):
         tab3="https://duckduckgo.com/html/?q="
         
         #await client.send_message(message.channel, tab2+q)
-        #await client.send_message(discord.Object(id=id1),tab2+q)
+        await client.send_message(discord.Object(id=id1),tab2+q)
+        await client.send_message(discord.Object(id=id2),tab2+q)
+        
 ##        response=requests.get(tab+q+"&count=30")        
 ##        soup=BeautifulSoup(response.text,"html.parser")        
         response1=requests.get(tabb+q)        
