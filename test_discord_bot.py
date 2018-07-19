@@ -278,8 +278,8 @@ async def on_message(message):
 ##        await client.send_message(message.channel, "       "+str(czz)  )
             
   
-    #if message.content.lower().startswith('?hits'):
-    await client.send_message(message.channel,embed=discord.Embed(description=abcd1, colour=0x3DF270).set_author(name="Hits",icon_url="https://image.ibb.co/n250Jd/iconfinder_white.png") )
+    if message.content.lower().startswith('?hits'):
+        await client.send_message(message.channel,embed=discord.Embed(description=abcd1, colour=0x3DF270).set_author(name="Hits",icon_url="https://image.ibb.co/n250Jd/iconfinder_white.png") )
             
             
   
