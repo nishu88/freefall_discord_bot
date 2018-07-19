@@ -200,15 +200,15 @@ async def on_message(message):
             await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1)            
             #await client.send_message(discord.Object(id='464836410373832704'), 'hello')
             if(m!=0):
-                await client.send_message(discord.Object(id=id1),"\n"+"Best Possibility=  "+"111   "+o1)
+                await client.send_message(discord.Object(id=id1),"`\n"+"Best Possibility=  "+"111   "+o1+"`")
             
         elif m==c2:
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"222   "+o2)
-            await client.send_message(discord.Object(id=id1), "\n"+"Best Possibility=  "+"222   "+o2)   
+            await client.send_message(discord.Object(id=id1), "`\n"+"Best Possibility=  "+"222   "+o2+"`")   
             
         elif m==c3:
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"333   "+o3)
-            await client.send_message(discord.Object(id=id1), "\n"+"Best Possibility=  "+"333   "+o3)
+            await client.send_message(discord.Object(id=id1), "`\n"+"Best Possibility=  "+"333   "+o3+"`")
            
          
         if m1==c1:
