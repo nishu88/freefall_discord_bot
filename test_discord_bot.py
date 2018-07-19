@@ -6,7 +6,7 @@ import time
 import os
 import requests
 from re import split,sub
-
+import threading
 from bs4 import BeautifulSoup
 
 overall_miss=0
@@ -116,161 +116,179 @@ async def on_message(message):
 
 
 ##        tab="https://www.bing.com/search?q="
-        tabb="https://search.aol.com/aol/search?s_chn=prt_bon&q=" 
-        tab1="https://search.aol.com/aol/search?s_chn=prt_bon&q=" #num=30&ei=py29WruLGoiSvQSbsIjYAg&
-        tab2="https://www.google.co.in/search?q="
-        tab3="https://duckduckgo.com/html/?q="
+##        tabb="https://search.aol.com/aol/search?s_chn=prt_bon&q=" 
+##        tab1="https://search.aol.com/aol/search?s_chn=prt_bon&q=" #num=30&ei=py29WruLGoiSvQSbsIjYAg&
+##        tab2="https://www.google.co.in/search?q="
+##        tab3="https://duckduckgo.com/html/?q="
         
         #await client.send_message(message.channel, tab2+q)
         #await client.send_message(discord.Object(id=id1),tab2+q)
         
-##        response=requests.get(tab+q+"&count=30")        
-##        soup=BeautifulSoup(response.text,"html.parser")        
-        response1=requests.get(tabb+q)        
-        soup1=BeautifulSoup(response1.text,"html.parser")
-        #print(soup1)
+def aol(q):
+    global ss2,ss3
+    tabb="https://search.aol.com/aol/search?s_chn=prt_bon&q="
+    
+    response1=requests.get(tabb+q)    
+    soup1=BeautifulSoup(response1.text,"html.parser")
+    
+    for link in  soup1.find_all("a",{"class": " ac-algo fz-l ac-21th lh-24"}):
+        firstlink=split(":(?=http)",link["href"].replace("/url?q=",""))
+        break
+    
+    firstlink[0]=firstlink[0][0:]
+    #print(firstlink[0])
+
+    response2=requests.get(firstlink[0])        
+    soup2=BeautifulSoup(response2.text,"html.parser")
+
+    ss2=soup1.get_text().lower()
+    ss3=soup2.get_text().lower()
+    ss2=sub('\W+','', ss2)
+    ss3=sub('\W+','', ss3)
+
+
+
+    
+def bing(q):
+    global ss1
+    tab="https://www.bing.com/search?q="
+    response=requests.get(tab+q)        
+    soup=BeautifulSoup(response.text,"html.parser").find(id="b_results")
+    ss1=soup.get_text().lower()
+    ss1=sub('\W+','', ss1)
+
+
+def ddg(q):
+    global ss4,ss5
+    tab3="https://duckduckgo.com/html/?q="
+    response3=requests.get(tab3+q)        
+    soup3=BeautifulSoup(response3.text,"html.parser")    
+    ss4=soup3.get_text().lower()
+    ss4=sub('\W+','', ss4)
+
+    
+    for link in  soup3.find_all("a",{"class": "result__url"}):
         
+        #print(link.get("href"))
         
-        #print (links)
-        for link in  soup1.find_all("a",{"class": " ac-algo fz-l ac-21th lh-24"}):                  
-              firstlink=split(":(?=http)",link["href"].replace("/url?q=",""))
-              break
+        firstlink1=link.get("href")
+        firstlink1=firstlink1[15:].replace("%3A",":").replace("%2F","/")        
+        
+        #print(firstlink1)
+        
+        if('wikipedia' in firstlink1):
+            #webbrowser.open(firstlink1) 
+            #print("hey")
+            break
+      
+    #firstlink1[0]=firstlink1[0][0:]
+    #print(firstlink[0])
+    
+    response5=requests.get(firstlink1)        
+    soup5=BeautifulSoup(response5.text,"html.parser")
+
+    ss5=soup5.get_text().lower()
+    ss5=sub('\W+','', ss5)
+
+
+
+
+t1=threading.Thread(target=aol,args=(q,))
+t2=threading.Thread(target=bing,args=(q,))
+t3=threading.Thread(target=ddg,args=(q,))
+
+t1.start()
+t2.start()
+t3.start()
+
+
+t1.join()
+t2.join()
+t3.join()
+
+
+
+
+#print (ss1)
+#print (ss2)
+
+#re.sub('\W+','', string)
+
+
+
+ox=o1.lower().split(" ")
+oy=o2.lower().split(" ")
+oz=o3.lower().split(" ")
+##    print(ox)
+##    print(oy)
+##    print(oz)
+
+
+oa=sub('\W+','', o1)
+ob=sub('\W+','', o2)
+oc=sub('\W+','', o3)
+
+ca=ss3.count(oa.lower())       
+cb=ss3.count(ob.lower())
+cc=ss3.count(oc.lower())
+
+c1= ss2.count(oa.lower()) + ca +ss4.count(oa.lower())+ss1.count(oa.lower())+ss5.count(oa.lower())
+c2= ss2.count(ob.lower()) + cb+ss4.count(ob.lower())+ ss1.count(ob.lower()) +ss5.count(ob.lower())
+c3=   ss2.count(oc.lower()) + cc+ss4.count(oc.lower()) + ss1.count(oc.lower()) +ss5.count(oc.lower())
+
+#print(ss5.count(oa.lower()))
+print()
+m=max(c1,c2,c3)
+print(o1+"       "+str(c1)+"           "+str(ca)+"         "+str(ss5.find(oa.lower())))
+print(o2+"       "+str(c2)+"           "+str(cb)+"        "+str(ss5.find(ob.lower())))
+print(o3+"       "+str(c3)+"           "+str(cc)+"         "+str(ss5.find(oc.lower())))
+
+if m==c1:
+    print("111   "+o1+" "+o1+" "+o1)
+elif m==c2:
+    print("222   "+o2+" "+o2+" "+o2)
+elif m==c3:
+    print("333   "+o3+" "+o3+" "+o3)
+
+            
                 
-            
-           # print (firstlink)
-        
-        
-            
-        firstlink[0]=firstlink[0][0:]
-        #print(firstlink[0])
-        
-        response2=requests.get(firstlink[0])        
-        soup2=BeautifulSoup(response2.text,"html.parser")
+    ##        print(c1)
+    ##        print(o2)
+    ##        print(c2)
+    ##        print(o3)
+    ##        print(c3)      
 
-        response3=requests.get(tab3+q)        
-        soup3=BeautifulSoup(response3.text,"html.parser")
-
+cxx=0
+cyy=0
+czz=0
+if(len(ox)>1):
+    for w in ox:
+        w=sub('\W+','', w)
+        if(len(w)>2 and w !="the" and w !="that" and w !="this" and w !="and" ):
+            if(w not in oy and w not in oz):
+                cx=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())+ss1.count(w.lower())+ss5.count(w.lower())
+                cxx=cxx+cx
+                print (str(w)+"  ("+str(cx)+")  ",end='')
+print("       "+str(cxx)  )
+if(len(oy)>1):
+    for w in oy:
+        w=sub('\W+','', w)
+        if(len(w)>2 and w !="the" and w !="that" and w !="this" and w !="and" ):
+            if(w not in ox and w not in oz):
+                cy=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())+ss1.count(w.lower())+ss5.count(w.lower())
+                cyy=cyy+cy
+                print(str(w)+"  ("+str(cy)+")  ",end='')
+print("       "+str(cyy)    )
+if(len(oz)>1):
+    for w in oz:
+        w=sub('\W+','', w)
+        if(len(w)>2 and w !="the" and w !="that" and w !="this"  and w !="and" ):
+            if(w not in oy and w not in ox):
+                cz=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())+ss1.count(w.lower())++ss5.count(w.lower())
+                czz=czz+cz
+                print(str(w)+"  ("+str(cz)+")  ",end='')
+print("       "+str(czz)  )           
             
-            #break
-##        for anchor in soup.findAll('a', href=True):
-##            print anchor['href']
-##        ss1=soup.get_text().lower()       
-        ss2=soup1.get_text().lower()
-        #print (ss2)
-        ss3=soup2.get_text().lower()
-        ss4=soup3.get_text().lower()
-        ##        ss15=ss1.split(" resultsdate language region",1)[0]
-        ##        ss1=ss1.split(" resultsdate language region",1)[1]
-        #print(ss1)
-##        ss1=sub('\W+','', ss1)
-        ss2=sub('\W+','', ss2)
-        ss3=sub('\W+','', ss3)
-        ss4=sub('\W+','', ss4)
-        #re.sub('\W+','', string)
-
-        ox=o1.lower().split(" ")
-        oy=o2.lower().split(" ")
-        oz=o3.lower().split(" ")
-##        print(ox)
-##        print(oy)
-##        print(oz)
-        
-
-        oa=sub('\W+','', o1)
-        ob=sub('\W+','', o2)
-        oc=sub('\W+','', o3)
-        
-        ca=ss3.count(oa.lower())       
-        cb=ss3.count(ob.lower())
-        cc=ss3.count(oc.lower())
-        
-        c1= ss2.count(oa.lower()) + ca +ss4.count(oa.lower())#+ss1.count(oa.lower())
-        c2= ss2.count(ob.lower()) + cb+ss4.count(ob.lower())#+ ss1.count(ob.lower()) 
-        c3=   ss2.count(oc.lower()) + cc+ss4.count(oc.lower())#+ ss1.count(oc.lower()) 
-
-        print()
-        m=max(c1,c2,c3)
-        m1=min(c1,c2,c3)
-        #await client.send_message(message.channel, o1+"       "+str(c1)+"           "+str(ca))
-        #await client.send_message(message.channel, o2+"       "+str(c2)+"           "+str(cb))
-        #await client.send_message(message.channel, o3+"       "+str(c3)+"           "+str(cc))
-        
-        if m==c1:
-            
-            await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1)            
-            #await client.send_message(discord.Object(id='464836410373832704'), 'hello')
-            if(m!=0):
-                await client.send_message(discord.Object(id=id1),"\n"+"Best Possibility=  "+"111   "+o1)
-            
-        elif m==c2:
-            await client.send_message(message.channel, "\n"+"Best Possibility=  "+"222   "+o2)
-            await client.send_message(discord.Object(id=id1), "\n"+"Best Possibility=  "+"222   "+o2)   
-            
-        elif m==c3:
-            await client.send_message(message.channel, "\n"+"Best Possibility=  "+"333   "+o3)
-            await client.send_message(discord.Object(id=id1), "\n"+"Best Possibility=  "+"333   "+o3)
-           
-         
-        if m1==c1:
-            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)  
-            if(m!=0):
-                await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"111   "+o1)
-        elif m1==c2:
-            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"222   "+o2)
-            await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"222   "+o2)
-        elif m1==c3:
-            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"333   "+o3)
-            await client.send_message(discord.Object(id=id1),"\n"+"Least Possibility=  "+"333   "+o3)
-
-                
-                    
-        ##        print(c1)
-        ##        print(o2)
-        ##        print(c2)
-        ##        print(o3)
-        ##        print(c3)      
-
-        cxx=0
-        cyy=0
-        czz=0
-        abcd=" "
-        if(len(ox)>=1):
-            for w in ox:
-                w=sub('\W+','', w)
-                if(len(w)>2 and w !="the" and w !="that" and w !="this" and w !="and" ):
-                    if(w not in oy and w not in oz):
-                        cx=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())
-                        cxx=cxx+cx                       
-                        abcd=abcd+ str(w)+"  ("+str(cx)+")  "
-        await client.send_message(message.channel, "       "+abcd+"        "+str(cxx) )
-        abcd=""
-##        await client.send_message(message.channel, "       "+ )
-        if(len(oy)>=1):
-            for w in oy:
-                w=sub('\W+','', w)
-                if(len(w)>2 and w !="the" and w !="that" and w !="this" and w !="and" ):
-                    if(w not in ox and w not in oz):
-                        cy=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())
-                        cyy=cyy+cy
-                        abcd=abcd+str(w)+"  ("+str(cy)+")  "
-        await client.send_message(message.channel, "       "+abcd+"        "+str(cyy)  )
-        abcd=""
-##        await client.send_message(message.channel, "       "+str(cyy)  )
-        if(len(oz)>=1):
-            for w in oz:
-                w=sub('\W+','', w)
-                if(len(w)>2 and w !="the" and w !="that" and w !="this"  and w !="and" ):
-                    if(w not in oy and w not in ox):
-                        cz=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())
-                        czz=czz+cz
-                        abcd=abcd+str(w)+"  ("+str(cz)+")  "
-        await client.send_message(message.channel, "       "+abcd +"        "+str(czz) )
-        abcd=""
-##        await client.send_message(message.channel, "       "+str(czz)  )
-            
-  
-    #if message.content.lower().startswith('?help'):
-        #await client.send_message(message.channel, " ?miss  ?thankyou  cookie  ?owner  !ping   ?guess") 
             
   
                     
