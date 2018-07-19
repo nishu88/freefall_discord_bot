@@ -28,7 +28,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global overall_miss,miss,overall_questions,id1
+    global overall_miss,miss,overall_questions,id1,abcd1
         
 
     if message.content.lower().startswith('?miss'):
@@ -239,6 +239,7 @@ async def on_message(message):
         cyy=0
         czz=0
         abcd=" "
+        
         if(len(ox)>=1):
             for w in ox:
                 w=sub('\W+','', w)
@@ -247,6 +248,7 @@ async def on_message(message):
                         cx=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())
                         cxx=cxx+cx                       
                         abcd=abcd+ str(w)+"  ("+str(cx)+")  "
+        abcd1 =   abcd + "\n"   
         await client.send_message(message.channel, "       "+abcd+"        "+str(cxx) )
         abcd=""
 ##        await client.send_message(message.channel, "       "+ )
@@ -258,6 +260,7 @@ async def on_message(message):
                         cy=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())
                         cyy=cyy+cy
                         abcd=abcd+str(w)+"  ("+str(cy)+")  "
+        abcd1=abcd1+abcd+"\n"               
         await client.send_message(message.channel, "       "+abcd+"        "+str(cyy)  )
         abcd=""
 ##        await client.send_message(message.channel, "       "+str(cyy)  )
@@ -269,13 +272,14 @@ async def on_message(message):
                         cz=ss2.count(w.lower()) + ss3. count(w.lower())+ss4.count(w.lower())
                         czz=czz+cz
                         abcd=abcd+str(w)+"  ("+str(cz)+")  "
+        abcd1=abcd1+abcd+"\n"                
         await client.send_message(message.channel, "       "+abcd +"        "+str(czz) )
         abcd=""
 ##        await client.send_message(message.channel, "       "+str(czz)  )
             
   
-    #if message.content.lower().startswith('?help'):
-        #await client.send_message(message.channel, " ?miss  ?thankyou  cookie  ?owner  !ping   ?guess") 
+    #if message.content.lower().startswith('?hits'):
+    await client.send_message(message.channel,embed=discord.Embed(description=abcd1, colour=0x3DF270).set_author(name="Hits",icon_url="https://image.ibb.co/n250Jd/iconfinder_white.png") )
             
             
   
