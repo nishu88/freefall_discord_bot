@@ -122,7 +122,7 @@ async def on_message(message):
         tab3="https://duckduckgo.com/html/?q="
         
         #await client.send_message(message.channel, tab2+q)
-        #await client.send_message(discord.Object(id=id1),tab2+q)
+        await client.send_message(discord.Object(id=id1),tab2+q)
         
 ##        response=requests.get(tab+q+"&count=30")        
 ##        soup=BeautifulSoup(response.text,"html.parser")        
