@@ -279,7 +279,7 @@ async def on_message(message):
             
   
     if message.content.lower().startswith('?hits'):
-        await client.send_message(message.channel,embed=discord.Embed(description=abcd1, colour=0x3DF270).set_author(name="Hits",icon_url="https://image.ibb.co/n250Jd/iconfinder_white.png").set_footer(text=":flag_in: Brought to you by Freefall Test Bot") )
+        await client.send_message(message.channel,embed=discord.Embed(description=abcd1, colour=0x3DF270).set_author(name="Hits",icon_url="https://image.ibb.co/n250Jd/iconfinder_white.png").set_footer(text="Be a Fountain. Not a Drain. #GiveAndTake") )
             
             
   
