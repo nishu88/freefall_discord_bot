@@ -202,7 +202,7 @@ async def on_message(message):
             #await client.send_message(discord.Object(id='464836410373832704'), 'hello')
             if(m!=0):
 ##                await client.send_message(discord.Object(id=id1),"\n"+"Best Possibility=  "+"111   "+o1)                
-                await client.send_message(discord.Object(id=id1),embed=discord.Embed(title="test",url="www.google.com",description="Best Possibility", colour=0x3DF270).set_author(name=o1,icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/NYCS-bull-trans-1.svg/1024px-NYCS-bull-trans-1.svg.png"))
+                await client.send_message(discord.Object(id=id1),embed=discord.Embed(description="Best Possibility", colour=0x3DF270).set_author(name=o1,icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/NYCS-bull-trans-1.svg/1024px-NYCS-bull-trans-1.svg.png"))
                 
         elif m==c2:
             await client.send_message(message.channel, "\n"+"Best Possibility=  "+"222   "+o2)
