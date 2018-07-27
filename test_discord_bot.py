@@ -29,7 +29,10 @@ async def on_ready():
 @client.event
 async def on_message(message):
     global overall_miss,miss,overall_questions,id1,abcd1
-        
+    asdf=1
+    if asdf==1:
+        #await client.get_message("284994155443126273", "472376167823835136")
+        await client.add_reaction(discord.Object(id="472376167823835136"), ":thumbsup:" )
 
     if message.content.lower().startswith('?miss'):
          overall_miss=overall_miss+1
