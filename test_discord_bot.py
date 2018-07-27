@@ -249,7 +249,7 @@ async def on_message(message):
                         cxx=cxx+cx                       
                         abcd=abcd+ str(w)+"  ("+str(cx)+")  "
         abcd1 =   abcd + "\n"   
-        await client.send_message(message.channel, "       "+abcd+"        "+str(cxx) )
+        #await client.send_message(message.channel, "       "+abcd+"        "+str(cxx) )
         abcd=""
 ##        await client.send_message(message.channel, "       "+ )
         if(len(oy)>=1):
@@ -261,7 +261,7 @@ async def on_message(message):
                         cyy=cyy+cy
                         abcd=abcd+str(w)+"  ("+str(cy)+")  "
         abcd1=abcd1+abcd+"\n"               
-        await client.send_message(message.channel, "       "+abcd+"        "+str(cyy)  )
+        #await client.send_message(message.channel, "       "+abcd+"        "+str(cyy)  )
         abcd=""
 ##        await client.send_message(message.channel, "       "+str(cyy)  )
         if(len(oz)>=1):
@@ -273,7 +273,7 @@ async def on_message(message):
                         czz=czz+cz
                         abcd=abcd+str(w)+"  ("+str(cz)+")  "
         abcd1=abcd1+abcd+"\n"                
-        await client.send_message(message.channel, "       "+abcd +"        "+str(czz) )
+        #await client.send_message(message.channel, "       "+abcd +"        "+str(czz) )
         abcd=""
 ##        await client.send_message(message.channel, "       "+str(czz)  )
             
