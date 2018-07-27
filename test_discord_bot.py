@@ -198,33 +198,33 @@ async def on_message(message):
                 
         if m==c1:
             
-            await client.send_message(message.channel,"\n"+" "+"111   "+o1)            
+            await client.send_message(message.channel,"\n"+"Best Possibility=  "+"111   "+o1)            
             #await client.send_message(discord.Object(id='464836410373832704'), 'hello')
             if(m!=0):
 ##                await client.send_message(discord.Object(id=id1),"\n"+"Best Possibility=  "+"111   "+o1)                
                 await client.send_message(discord.Object(id=id1),embed=discord.Embed(description="Best Possibility", colour=0x3DF270).set_author(name=o1,icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/NYCS-bull-trans-1.svg/1024px-NYCS-bull-trans-1.svg.png"))
                 
         elif m==c2:
-            await client.send_message(message.channel, "\n"+" "+"222   "+o2)
+            await client.send_message(message.channel, "\n"+"Best Possibility=  "+"222   "+o2)
 ##            await client.send_message(discord.Object(id=id1), "\n"+"Best Possibility=  "+"222   "+o2)   
             await client.send_message(discord.Object(id=id1),embed=discord.Embed(description="Best Possibility", colour=0x3DF270).set_author(name=o2,icon_url="https://image.ibb.co/bTTHWy/number_2_two_icon_11920.png"))
             
         elif m==c3:
-            await client.send_message(message.channel, "\n"+"  "+"333   "+o3)
+            await client.send_message(message.channel, "\n"+"Best Possibility=  "+"333   "+o3)
             #await client.send_message(discord.Object(id=id1), "\n"+"Best Possibility=  "+"333   "+o3)
             await client.send_message(discord.Object(id=id1),embed=discord.Embed(description="Best Possibility", colour=0x3DF270).set_author(name=o3,icon_url="https://i0.wp.com/tantrwm.com/wp-content/uploads/2016/11/Tantrwm-Video-Production-Wales-Filming-Live-Streaming-Webcasts-Webcastings-Production-3-man-film-crew.png?fit=2000%2C2000"))
            
          
         if m1==c1:
-            #await client.send_message(message.channel, "\n"+"Least=  "+"111   "+o1)  
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"111   "+o1)  
             if(m!=0):
                 await client.send_message(discord.Object(id=id1),"```\n"+"Least Possibility=  "+"111   "+o1+"```")
                 
         elif m1==c2:
-            #await client.send_message(message.channel, "\n"+"Least =  "+"222   "+o2)
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"222   "+o2)
             await client.send_message(discord.Object(id=id1),"```\n"+"Least Possibility=  "+"222   "+o2+"```")
         elif m1==c3:
-            #await client.send_message(message.channel, "\n"+"Least =  "+"333   "+o3)
+            await client.send_message(message.channel, "\n"+"Least Possibility=  "+"333   "+o3)
             await client.send_message(discord.Object(id=id1),"```\n"+"Least Possibility=  "+"333   "+o3+"```")
 
                 
@@ -249,7 +249,7 @@ async def on_message(message):
                         cxx=cxx+cx                       
                         abcd=abcd+ str(w)+"  ("+str(cx)+")  "
         abcd1 =   abcd + "\n"   
-        #await client.send_message(message.channel, "       "+abcd+"        "+str(cxx) )
+        await client.send_message(message.channel, "       "+abcd+"        "+str(cxx) )
         abcd=""
 ##        await client.send_message(message.channel, "       "+ )
         if(len(oy)>=1):
@@ -261,7 +261,7 @@ async def on_message(message):
                         cyy=cyy+cy
                         abcd=abcd+str(w)+"  ("+str(cy)+")  "
         abcd1=abcd1+abcd+"\n"               
-        #await client.send_message(message.channel, "       "+abcd+"        "+str(cyy)  )
+        await client.send_message(message.channel, "       "+abcd+"        "+str(cyy)  )
         abcd=""
 ##        await client.send_message(message.channel, "       "+str(cyy)  )
         if(len(oz)>=1):
@@ -273,7 +273,7 @@ async def on_message(message):
                         czz=czz+cz
                         abcd=abcd+str(w)+"  ("+str(cz)+")  "
         abcd1=abcd1+abcd+"\n"                
-        #await client.send_message(message.channel, "       "+abcd +"        "+str(czz) )
+        await client.send_message(message.channel, "       "+abcd +"        "+str(czz) )
         abcd=""
 ##        await client.send_message(message.channel, "       "+str(czz)  )
             
