@@ -88,7 +88,7 @@ async def on_message(message):
                     return
 
                 
-    if message.content.lower().startswith('?guess '):
+    if message.content.lower().startswith('?guesss '):
         
         overall_questions = overall_questions +1
         
