@@ -12,6 +12,10 @@ from bs4 import BeautifulSoup
 overall_miss=0
 miss=0
 overall_questions=0
+o1=" "
+o2=" "
+o3=" "
+q=" "
 
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
@@ -28,7 +32,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global overall_miss,miss,overall_questions,id1,abcd1
+    global overall_miss,miss,overall_questions,id1,abcd1,o1,o2,o3,q
    
 
     if message.content.lower().startswith('?miss'):
@@ -87,7 +91,9 @@ async def on_message(message):
                 except discord.errors.NotFound:
                     return
 
-                
+    if message.content.lower() == "?end": 
+        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270).set_author(name=q).set_footer(text=""))
+        
     if message.content.lower().startswith('?guess '):
         
         overall_questions = overall_questions +1
