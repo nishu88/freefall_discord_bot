@@ -70,15 +70,15 @@ async def on_message(message):
         userID = message.author.id
         ran=random.randint(1, 4)
         if ran==1:
-            color="RED"
+            color="RED -- Griffindor  :heart: "
         elif ran==2:
-            color="YELLOW"
+            color="YELLOW -- Hufflepuff :yellow_heart:"
         elif ran==3:
-            color="BLUE"
+            color="BLUE -- Ravenclaw :blue_heart:  "
         else :
-            color="GREEN"
+            color="GREEN -- Slytherin :green_heart: "
             
-        await client.send_message(message.channel, "<@%s> " % (userID)+str(ran)+"  "+color )
+        await client.send_message(message.channel, "<@%s> " % (userID)+str(ran)+"  "+color)
         
     if message.content.lower() == "?here":  
         #await client.send_message(message.channel, "BOT Offline ...till things calm down :cookie:")
