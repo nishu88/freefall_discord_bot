@@ -6,7 +6,7 @@ import time
 import os
 import requests
 from re import split,sub
-
+import datetime
 from bs4 import BeautifulSoup
 
 overall_miss=0
@@ -15,7 +15,8 @@ overall_questions=0
 o1=" "
 o2=" "
 o3=" "
-q1="Question :: "
+q1=" "
+counter=0
 
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
@@ -32,15 +33,16 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global overall_miss,miss,overall_questions,id1,abcd1,o1,o2,o3,q1
+    global overall_miss,miss,overall_questions,id1,abcd1,o1,o2,o3,q1,counter
    
-
+    
     if message.content.lower().startswith('?miss'):
          overall_miss=overall_miss+1
          miss=miss+1
         
     if message.content.lower().startswith('?reset'):
          miss=0
+         counter=0
 
          
     if message.content.lower().startswith('?thankyou'):
@@ -91,8 +93,12 @@ async def on_message(message):
                 except discord.errors.NotFound:
                     return
 
-    if message.content.lower() == "?end": 
-        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270).set_author(name=q1).set_footer(text="This Marks the END of Previous Question"))
+    if message.content.lower() == "?end":
+        counter=counter+1
+        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg"))
+        
+        #BB    http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg
+        #Loco  https://pbs.twimg.com/profile_images/958726814377172992/pHAMA2K9.jpg
         
     if message.content.lower().startswith('?guess '):
         
@@ -116,7 +122,7 @@ async def on_message(message):
             q+=s[i]
             
         #await client.send_message(message.channel, q)   
-        q1=q1+q
+        q1=q
         q=q.replace(" ","+")
             
         
