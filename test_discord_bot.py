@@ -8,6 +8,7 @@ import requests
 from re import split,sub
 import datetime
 from bs4 import BeautifulSoup
+import random
 
 overall_miss=0
 miss=0
@@ -65,6 +66,20 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> Pong!" % (userID))
         
+    if message.content.upper().startswith('?ROLL'):        
+        userID = message.author.id
+        ran=random.randint(1, 4)
+        if ran==1:
+            color="RED"
+        elif ran==2:
+            color="YELLOW"
+        elif ran==3:
+            color="BLUE"
+        else :
+            color="GREEN"
+            
+        await client.send_message(message.channel, "<@%s> " % (userID)+str(ran)+"  "+color )
+        
     if message.content.lower() == "?here":  
         #await client.send_message(message.channel, "BOT Offline ...till things calm down :cookie:")
         if str(message.author.id)=="277695189131460609" or str(message.author.id)=="366125961206300673":
@@ -94,12 +109,11 @@ async def on_message(message):
                     return
 
     if message.content.lower() == "?end":
-        if str(message.author.id)=="277695189131460609":
-            counter=counter+1
-            await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg"))
+        counter=counter+1
+        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg"))
         
-            #BB    http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg
-            #Loco  https://pbs.twimg.com/profile_images/958726814377172992/pHAMA2K9.jpg
+        #BB    http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg
+        #Loco  https://pbs.twimg.com/profile_images/958726814377172992/pHAMA2K9.jpg
         
     if message.content.lower().startswith('?guess '):
         
