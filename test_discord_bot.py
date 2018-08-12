@@ -15,7 +15,7 @@ overall_questions=0
 o1=" "
 o2=" "
 o3=" "
-q=" "
+q1="Question :: "
 
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
@@ -92,7 +92,7 @@ async def on_message(message):
                     return
 
     if message.content.lower() == "?end": 
-        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270).set_author(name=q).set_footer(text=""))
+        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270).set_author(name=q).set_footer(text="This Marks the END of Previous Question"))
         
     if message.content.lower().startswith('?guess '):
         
@@ -116,7 +116,7 @@ async def on_message(message):
             q+=s[i]
             
         #await client.send_message(message.channel, q)   
-        
+        q1=q1+q
         q=q.replace(" ","+")
             
         
