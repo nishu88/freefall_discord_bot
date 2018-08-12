@@ -32,7 +32,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global overall_miss,miss,overall_questions,id1,abcd1,o1,o2,o3,q
+    global overall_miss,miss,overall_questions,id1,abcd1,o1,o2,o3,q1
    
 
     if message.content.lower().startswith('?miss'):
