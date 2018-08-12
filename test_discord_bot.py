@@ -94,11 +94,12 @@ async def on_message(message):
                     return
 
     if message.content.lower() == "?end":
-        counter=counter+1
-        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg"))
+        if str(message.author.id)=="277695189131460609":
+            counter=counter+1
+            await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg"))
         
-        #BB    http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg
-        #Loco  https://pbs.twimg.com/profile_images/958726814377172992/pHAMA2K9.jpg
+            #BB    http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg
+            #Loco  https://pbs.twimg.com/profile_images/958726814377172992/pHAMA2K9.jpg
         
     if message.content.lower().startswith('?guess '):
         
