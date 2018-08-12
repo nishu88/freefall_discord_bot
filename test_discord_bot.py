@@ -92,7 +92,7 @@ async def on_message(message):
                     return
 
     if message.content.lower() == "?end": 
-        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270).set_author(name=q).set_footer(text="This Marks the END of Previous Question"))
+        await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270).set_author(name=q1).set_footer(text="This Marks the END of Previous Question"))
         
     if message.content.lower().startswith('?guess '):
         
