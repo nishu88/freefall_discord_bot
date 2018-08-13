@@ -70,7 +70,8 @@ async def on_message(message):
         
     if message.content.upper().startswith('?OFFENDERS'):
         for offenders in l1:
-            await client.send_message(message.channel, "<@%s> " % (offenders))
+            if offenders !="277695189131460609":
+                await client.send_message(message.channel, "<@%s> " % (offenders))
         
     if message.content.upper().startswith('?ROLL'):        
         userID = message.author.id
