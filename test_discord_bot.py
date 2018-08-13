@@ -18,6 +18,8 @@ o2=" "
 o3=" "
 q1=" "
 counter=0
+l=[]
+l1=[]
 
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
@@ -34,7 +36,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global overall_miss,miss,overall_questions,id1,abcd1,o1,o2,o3,q1,counter
+    global overall_miss,miss,overall_questions,id1,abcd1,o1,o2,o3,q1,counter,l,l1
    
     
     if message.content.lower().startswith('?miss'):
@@ -66,26 +68,34 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> Pong!" % (userID))
         
+    if message.content.upper().startswith('?OFFENDERS'):
+        for offenders in l1:
+            await client.send_message(message.channel, "<@%s> " % (offenders))
+        
     if message.content.upper().startswith('?ROLL'):        
         userID = message.author.id
-        ran=random.randint(1, 4)
-        if ran==1:
-            color="RED -- Griffindor  :heart: "
-        elif ran==2:
-            color="YELLOW -- Hufflepuff :yellow_heart:"
-        elif ran==3:
-            color="BLUE -- Ravenclaw :blue_heart:  "
-        else :
-            color="GREEN -- Slytherin :green_heart: "
+        if str(userID) in l:
+            await client.send_message(message.channel, "<@%s> " % (userID)+"U have typed ` ?roll ` more than once...as PUNISHMENT you'll be DEAFENED for atleast 24hr... Enjoy the SILENCE" )
+            l1.append(str(userID))
+        else:
+            ran=random.randint(1, 4)
+            if ran==1:
+                color="RED -- Griffindor  :heart: "
+            elif ran==2:
+                color="YELLOW -- Hufflepuff :yellow_heart:"
+            elif ran==3:
+                color="BLUE -- Ravenclaw :blue_heart:  "
+            else :
+                color="GREEN -- Slytherin :green_heart: "
             
-        await client.send_message(message.channel, "<@%s> " % (userID)+str(ran)+"  "+color)
+            await client.send_message(message.channel, "<@%s> " % (userID)+str(ran)+"  "+color)
+        l.append(str(userID))
         
     if message.content.lower() == "?here":  
         #await client.send_message(message.channel, "BOT Offline ...till things calm down :cookie:")
         if str(message.author.id)=="277695189131460609" or str(message.author.id)=="366125961206300673":
             id1= str(message.channel.id )
-            await client.send_message(message.channel, "Got it")
-            
+            await client.send_message(message.channel, "Got it")            
       
         
         
@@ -111,7 +121,7 @@ async def on_message(message):
     if message.content.lower() == "?end":
         if str(message.author.id)=="277695189131460609" or str(message.author.id)=="436513875744129025":
             counter=counter+1
-            await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="https://pbs.twimg.com/profile_images/958726814377172992/pHAMA2K9.jpg"))
+            await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg"))
         
         #BB    http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg
         #Loco  https://pbs.twimg.com/profile_images/958726814377172992/pHAMA2K9.jpg
