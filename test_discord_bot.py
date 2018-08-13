@@ -122,8 +122,9 @@ async def on_message(message):
     if message.content.lower() == "?end":
         if str(message.author.id)=="277695189131460609" or str(message.author.id)=="436513875744129025":
             counter=counter+1
-            await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg"))
-        
+            await client.send_message(discord.Object(id=id1),embed=discord.Embed(description=o1+"\n"+o2+"\n"+o3, colour=0x3DF270,timestamp=datetime.datetime.utcnow()).set_author(name=q1).set_footer(text="This Marks the END of  "+str(counter)+"/10 "+" Question").set_thumbnail(url="https://media.dayoftheshirt.com/images/shirts/SZUYqr6vhrvw/teetee_fsociety_1459811529.full.png"))
+            
+        #Default https://media.dayoftheshirt.com/images/shirts/SZUYqr6vhrvw/teetee_fsociety_1459811529.full.png     
         #BB    http://www.dqweek.com/wp-content/uploads/2018/05/BrainBaazi.jpg
         #Loco  https://pbs.twimg.com/profile_images/958726814377172992/pHAMA2K9.jpg
         #SWoo  https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/56/ca/91/56ca9199-cc45-4367-fe4a-ce5a3517e4e6/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-5.png/246x0w.jpg
