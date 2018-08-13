@@ -85,7 +85,7 @@ async def on_message(message):
             elif ran==2:
                 color="YELLOW -- Hufflepuff :yellow_heart:"
             elif ran==3:
-                color="BLUE -- Ravenclaw :blue_heart:  "
+                color="BLUE -- Ravenclaw :blue_heart:  " 
             else :
                 color="GREEN -- Slytherin :green_heart: "
             
