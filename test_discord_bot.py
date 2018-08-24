@@ -94,7 +94,7 @@ async def on_message(message):
         
     if message.content.lower() == "?here":  
         #await client.send_message(message.channel, "BOT Offline ...till things calm down :cookie:")
-        if str(message.author.id)=="277695189131460609" or str(message.author.id)=="366125961206300673":
+        if str(message.author.id)=="277695189131460609" or str(message.author.id)=="366125961206300673" or str(message.author.id)=="447038097893490688":
             id1= str(message.channel.id )
             await client.send_message(message.channel, "Got it")            
       
